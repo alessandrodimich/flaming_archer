@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: rproj_development
+  database: flaming_archer_development
   pool: 5
   username: postgres
   password: dimich
@@ -41,7 +41,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: rproj_test
+  database: flaming_archer_test
   pool: 5
   username: postgres
   password: dimich
@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: rproj_production
+  database: flaming_archer_production
   pool: 5
   username: postgres
   password: dimich
