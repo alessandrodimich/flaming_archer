@@ -26,8 +26,12 @@ group :development, :test do
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
   gem 'guard-livereload'
+  gem 'annotate'
 end
 
+group :development do
+  gem 'better_errors'
+end
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
@@ -38,7 +42,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
