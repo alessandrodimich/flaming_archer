@@ -1,5 +1,8 @@
 Rproj::Application.routes.draw do
 
+  resources :users
+
+
   root to: "home#welcome"
 
   get "home/welcome"

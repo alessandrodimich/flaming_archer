@@ -201,6 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt-ruby (~> 3.0.0)
   better_errors
   bootstrap-sass
   capybara
