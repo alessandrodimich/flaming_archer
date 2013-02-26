@@ -1,13 +1,18 @@
 Rproj::Application.routes.draw do
 
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'welcome', to: 'home#welcome', as: 'welcome'
+  get 'index', to: 'home#index', as: 'index'
+
   resources :users
+  resources :sessions
 
 
   root to: "users#index"
 
-  get "home/welcome"
 
-  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
