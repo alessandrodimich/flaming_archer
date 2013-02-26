@@ -16,3 +16,8 @@
 
 # Ignore application configuration
 /config/application.yml
+
+#Ignore these backup files
+
+/app/views/layouts/original_messages.html.erb
+/app/views/layouts/original_navigation.html.erb

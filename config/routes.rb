@@ -3,7 +3,7 @@ Rproj::Application.routes.draw do
   resources :users
 
 
-  root to: "home#welcome"
+  root to: "users#index"
 
   get "home/welcome"
 
