@@ -1,16 +1,18 @@
 Rproj::Application.routes.draw do
 
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'signup', to: 'users#new', as: 'signup' #equivalent to: match '/signup',  to: 'users#new'
+  get 'login', to: 'sessions#new', as: 'login' #equivalent to: match '/login',  to: 'sessions#new'
+  get 'logout', to: 'sessions#destroy', as: 'logout' #equivalent to: match '/logout',  to: 'sessions#destroy'
   get 'welcome', to: 'home#welcome', as: 'welcome'
   get 'index', to: 'home#index', as: 'index'
 
-  resources :users
-  resources :sessions
 
 
-  root to: "users#index"
+
+  root to: "home#welcome"
 
 
 

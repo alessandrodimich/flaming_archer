@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         format.html {
 
           create_session(@user)
-          cookies.permanent[:auth_token] = @user.auth_token
+          create_permanent_cookie(@user)
           redirect_to root_url, notice: "Welcome, #{current_user.username}!"
         }
         format.json { render json: @user, status: :created, location: @user }
