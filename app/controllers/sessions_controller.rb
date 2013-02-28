@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:user][:email])
 
       if user && user.authenticate(params[:user][:password])
-        if params[:user][:remember_me]
+        if params[:user][:remember_me] == "1"
           create_permanent_cookie(user)
         else
           create_temporary_cookie(user)
