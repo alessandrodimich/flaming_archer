@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @button_text = "Signup"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @button_text = "Edit"
   end
 
   # POST /users
@@ -50,7 +52,7 @@ class UsersController < ApplicationController
 
           create_session(@user)
           create_permanent_cookie(@user)
-          redirect_to root_url, notice: "Welcome, #{current_user.username}!"
+          redirect_to user_path(@user), notice: "Welcome, #{current_user.username}!"
         }
         format.json { render json: @user, status: :created, location: @user }
       else

@@ -18,7 +18,9 @@ private
 
   def authorize
     unless current_user
-      redirect_to index_url, alert: "Not authorized"
+      flash.alert = "You must login First"
+      redirect_to index_url
+
     end
   end
 
