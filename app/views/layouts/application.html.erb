@@ -10,7 +10,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top">
+    <header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
@@ -24,6 +24,8 @@
             <div class="span12">
               <%= render 'layouts/messages' %>
               <%= yield %>
+
+
             </div>
           </div>
           <footer>
@@ -34,4 +36,10 @@
   </body>
 </html>
 
+
 <%= debug(params) if Rails.env.development? %>
+
+        <p><%= request.url %></p>
+         <p><%= request.host_with_port %></p>
+         <p><%= url_for(:only_path => false) %></p>
+         <p>request.fullpath</p>
