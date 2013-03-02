@@ -1,7 +1,10 @@
 Rproj::Application.routes.draw do
 
+  get "password_resets/new"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets
 
   get 'signup', to: 'users#new', as: 'signup' #equivalent to: match '/signup',  to: 'users#new'
   get 'login', to: 'sessions#new', as: 'login' #equivalent to: match '/login',  to: 'sessions#new'
