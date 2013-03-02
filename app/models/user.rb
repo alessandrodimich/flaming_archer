@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates(:username, presence: true, length: { maximum: 50 }, uniqueness:{ case_sensitive: false})
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #VALID_EMAIL_REGEX = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+
   validates(:email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false})
   #validates_presence_of :password, :on => :create
   validates(:password, presence: true, length: { minimum: 6}, :on => :create )

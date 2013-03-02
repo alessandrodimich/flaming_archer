@@ -4,8 +4,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    if params[:user][:email] =~ /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-
+    if params[:user][:email] =~ VALID_EMAIL_REGEX
       user = User.find_by_email(params[:user][:email])
 
       if user
