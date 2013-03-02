@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
 
   validates(:email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false})
   #validates_presence_of :password, :on => :create
-  validates(:password, presence: true, length: { minimum: 6}, :on => :create )
+   validates_presence_of :password, :if => :password_required?
+  validates_presence_of :password_confirmation, :if => :password_required?
+  validates_length_of :password, within: 6..30, :if => :password_required?
+  #validates_length_of :password_confirmation, within: 6..30, :if => :password_required?
 
   before_create { generate_token(:remember_me_token) }
 
@@ -24,6 +27,10 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def password_required?
+     password_digest.blank? || password && password_confirmation
   end
 
 end

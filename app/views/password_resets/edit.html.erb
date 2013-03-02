@@ -1,0 +1,7 @@
+<h2>Reset Password</h2>
+<%= simple_form_for(@user, :url => password_reset_path(params[:id]), :html => {:class => 'form-vertical' }) do |f| %>
+  <%= f.input :password, :required => true, :autofocus => true %>
+  <%= f.input :password_confirmation, :required => true %>
+  <%= f.button :submit, "Reset Password", :class => 'btn-primary' %>
+<% end %>
+
