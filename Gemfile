@@ -1,5 +1,5 @@
- source 'https://rubygems.org'
-
+source 'https://rubygems.org'
+ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -7,8 +7,8 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 gem 'figaro'
-gem 'devise'
 gem 'simple_form'
+gem 'heroku'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +23,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'annotate'
