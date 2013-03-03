@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+// $ -> per effettuare il fadein dei flash notice
+//   $(".notice, .error").on("click", (event)->
+//     $(event.target).hide("slow")
+//   )
