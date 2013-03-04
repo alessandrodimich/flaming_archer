@@ -23,14 +23,16 @@ class User < ActiveRecord::Base
 
   end
 
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
-  end
+  protected
 
-  def password_required?
-     password_digest.blank? || password && password_confirmation
-  end
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
+    end
+
+    def password_required?
+       password_digest.blank? || password && password_confirmation
+    end
 
 end
