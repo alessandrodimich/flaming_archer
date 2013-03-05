@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   #validates_length_of :password_confirmation, within: 6..30, :if => :password_required?
 
   before_create { generate_token(:remember_me_token) }
+  before_save { |user| user.email = email.downcase }
+  before_save { |user| user.username = username.downcase }
 
   def send_password_reset(user)
     generate_token(:password_reset_token)
