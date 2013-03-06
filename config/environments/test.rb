@@ -9,7 +9,9 @@ Rproj::Application.configure do
 
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
-  config.static_cache_control = "public, max-age=3600"
+  #config.static_cache_control = "public, max-age=3600"
+  #COMMENTED OUT
+
 
   # Log error messages when you accidentally call methods on nil
   config.whiny_nils = true

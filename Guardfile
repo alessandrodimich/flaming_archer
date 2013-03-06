@@ -6,7 +6,7 @@ guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('Gemfile')
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb') { :rspec }
-  watch('spec/support'}
+  watch('spec/support')
 end
 
 guard 'rspec', :version => 2, :cli => "--drb", :all_on_start => false, :all_after_pass => false do
