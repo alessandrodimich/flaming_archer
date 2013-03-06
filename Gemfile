@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,24 +9,27 @@ gem 'pg'
 gem 'figaro'
 gem 'simple_form'
 gem 'heroku'
+gem 'bootstrap-sass'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass'
+  gem 'uglifier', '>= 1.0.3'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'growl'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'annotate'
+  gem 'spork'
+  gem 'guard-spork'
 end
 
 group :development do
@@ -35,8 +38,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'spork'
-  gem 'guard-spork'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
