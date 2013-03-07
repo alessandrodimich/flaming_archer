@@ -71,8 +71,10 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     ffi (1.4.0)
-    figaro (0.6.1)
+    figaro (0.6.2)
       rails (>= 3, < 5)
     growl (1.0.3)
     guard (1.6.2)
@@ -217,6 +219,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   database_cleaner
   factory_girl_rails
+  faker
   figaro
   growl
   guard-livereload
@@ -224,6 +227,7 @@ DEPENDENCIES
   guard-spork
   heroku
   jquery-rails
+  launchy
   pg
   rails (= 3.2.12)
   rb-fsevent (~> 0.9.1)
