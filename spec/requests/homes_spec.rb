@@ -1,15 +1,31 @@
 require 'spec_helper'
 
-describe "Homes" do
-  describe "GET /homes" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get '/index'
-      response.status.should be(200)
-    end
-    it "should have the content 'home#welcome" do
+describe "Home Page" do
 
-      page.should have_content('home#welcome')
-    end
+  subject { page }
+
+  before { visit root_path }
+
+  it "should have the content 'home#welcome" do
+      should have_selector('h1', text: 'Home#welcome' )
+      should have_selector('title', BASE_TITLE)
   end
+
+  it { should have_selector('title', BASE_TITLE)}
+
+  it "should not have a custom page title" do
+      should_not have_selector('title', :text => '| Home')
+  end
+end
+
+describe "Index" do
+puts "-------------"
+puts puts full_title('index')
+  subject { page }
+
+  before { visit '/index' }
+
+  it { should have_selector('title', full_title("Index"))}
+  it { should have_selector('h1', 'Home#index' ) }
+
 end

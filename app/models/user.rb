@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :username, :password, :password_confirmation, :password_reset_token,           :password_reset_sent_at
+  attr_accessible :email, :username, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at, :first_name, :last_name
+
+
   has_secure_password
 
   validates(:username, presence: true, length: { maximum: 50 }, uniqueness:{ case_sensitive: false})
@@ -16,6 +18,8 @@ class User < ActiveRecord::Base
   before_create { generate_token(:remember_me_token) }
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
+  before_save { |user| user.first_name = first_name.capitalize }
+  before_save { |user| user.last_name = last_name.capitalize }
 
   def send_password_reset(user)
     generate_token(:password_reset_token)
@@ -24,6 +28,13 @@ class User < ActiveRecord::Base
     save!
 
   end
+
+  def full_name
+    [first_name, last_name].join " "
+  end
+
+
+
 
   protected
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Users" do
   describe "GET /users" do
-    it "works! (now write some real specs)" do
+    it "Page should have content listing users" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
 
 

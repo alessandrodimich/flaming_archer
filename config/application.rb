@@ -8,6 +8,20 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
+# config.generatorsdo|g|   Eventually uncommen later
+#     g.test_framework :rspec,
+#     fixtures: true,
+#     view_specs: false,
+#     helper_specs: false,
+#     routing_specs: false,
+#     controller_specs: true,
+#     request_specs: true
+#     g.fixture_replacement :factory_girl, dir: "spec/factories"
+#  end
+
+
+
+BASE_TITLE = "FlamingArcher"
 VALID_EMAIL_REGEX = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
 if defined?(Bundler)
