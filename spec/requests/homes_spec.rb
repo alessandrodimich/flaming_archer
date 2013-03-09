@@ -19,8 +19,7 @@ describe "Home Page" do
 end
 
 describe "Index" do
-puts "-------------"
-puts puts full_title('index')
+
   subject { page }
 
   before { visit '/index' }
