@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string(255)      not null
+#  username               :string(255)      not null
+#  password_digest        :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  remember_me_token      :string(255)
+#  auth_token             :string(255)
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
+#  first_name             :string(255)
+#  last_name              :string(255)
+#
+
 class User < ActiveRecord::Base
 
   attr_accessible :email, :username, :password, :password_confirmation, :password_reset_token, :password_reset_sent_at, :first_name, :last_name
@@ -10,7 +28,7 @@ class User < ActiveRecord::Base
 
   validates(:email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false})
   #validates_presence_of :password, :on => :create
-   validates_presence_of :password, :if => :password_required?
+  validates_presence_of :password, :if => :password_required?
   validates_presence_of :password_confirmation, :if => :password_required?
   validates_length_of :password, within: 6..30, :if => :password_required?
   #validates_length_of :password_confirmation, within: 6..30, :if => :password_required?

@@ -28,13 +28,13 @@ group :development, :test do
   gem 'growl'
   gem 'guard-rspec'
   gem 'guard-livereload'
-  gem 'annotate'
   gem 'spork'
   gem 'guard-spork'
 end
 
 group :development do
   gem 'better_errors'
+  gem 'annotate'
 end
 group :test do
   gem 'capybara'
