@@ -39,7 +39,7 @@ describe User do
   it "first_name can only contain letters, spaces or dots" #Verify on the dots
   it "last_name can only contain letters, spaces or dots" #Verify on the dots
   it "username can only contain letters, numbers, dashes, underscores or dots"
-  it " is invalid when password confirmation is nil"
+  it " is invalid when password confirmation is nil" #VERIFICARE PERCHE SI DEVE RIMUOVERE LA PASSWORD CONFIRMATION
 
   describe "when username is not present" do
     before { @user.username = " " }
@@ -73,6 +73,33 @@ describe User do
       user_with_same_username.save
     end
     it { should_not be_valid }
+  end
+
+  describe "verify first_name capitalization" do
+    subject { @user.first_name }
+    before do
+      @user.first_name = "test"
+      @user.save
+    end
+    it { should == "Test"}
+  end
+
+  describe "verify last_name capitalization" do
+    subject { @user.last_name }
+    before do
+      @user.last_name = "user"
+      @user.save
+    end
+    it { should == "User"}
+  end
+
+  describe "verify username to lower case" do
+    subject { @user.username }
+    before do
+      @user.username = "USER-_name51"
+      @user.save
+    end
+    it { should == "user-_name51"}
   end
 
   describe "when password doesn't match confirmation" do
