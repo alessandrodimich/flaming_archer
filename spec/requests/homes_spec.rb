@@ -8,10 +8,9 @@ describe "Home Page" do
 
   it "should have the content 'home#welcome" do
       should have_selector('h1', text: 'Home#welcome' )
-      should have_selector('title', text: BASE_TITLE)
   end
 
-  it { should have_selector('title', BASE_TITLE)}
+  it { should have_selector('title', text: BASE_TITLE)}
 
   it "should not have a custom page title" do
       should_not have_selector('title', :text => '| Home')
@@ -24,7 +23,7 @@ describe "Index" do
 
   before { visit '/index' }
 
-  it { should have_selector('title', full_title("Index"))}
+  it { should have_selector('title', text: full_title("index"))}
   it { should have_selector('h1', 'Home#index' ) }
 
 end
