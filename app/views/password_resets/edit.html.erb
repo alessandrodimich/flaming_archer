@@ -1,3 +1,4 @@
+<% provide(:title, 'reset password') %>
 <h2>Reset Password</h2>
 <%= simple_form_for(@user, :url => password_reset_path(params[:id]), :html => {:method => :put,:class => 'form-vertical' }) do |f| %>
   <%= f.input :password, :required => true, :autofocus => true %>

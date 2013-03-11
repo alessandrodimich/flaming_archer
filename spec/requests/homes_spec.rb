@@ -8,7 +8,7 @@ describe "Home Page" do
 
   it "should have the content 'home#welcome" do
       should have_selector('h1', text: 'Home#welcome' )
-      should have_selector('title', BASE_TITLE)
+      should have_selector('title', text: BASE_TITLE)
   end
 
   it { should have_selector('title', BASE_TITLE)}

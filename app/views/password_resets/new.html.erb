@@ -1,3 +1,4 @@
+<% provide(:title, 'resend password') %>
 <%= simple_form_for(:user, url: password_resets_path, :html => {:class => 'form-vertical' }) do |f| %>
   <div class="field">
     <%= f.input :email,:required =>true, :autofocus => true %>

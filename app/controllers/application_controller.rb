@@ -21,6 +21,13 @@ private
     session[:user_id] = user.id
   end
 
+  def destroy_session
+    session[:user_id] = nil
+    cookies.delete(:remember_me_token)
+    current_user = nil
+  end
+
+
   def authorize
     unless current_user
       flash.alert = "You must login First"
