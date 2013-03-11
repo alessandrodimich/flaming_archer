@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  include SessionsHelper
-
 
 private
 
@@ -12,7 +10,14 @@ private
 
   helper_method :current_user #allows the method current_user to be accessed in the view
 
-  def create_session(user)
+
+  def create_permanent_session(user)
+    cookies.permanent[:remember_me_token] = user.remember_me_token
+    session[:user_id] = user.id
+  end
+
+  def create_temporary_session(user)
+    cookies[:remember_me_token] = user.remember_me_token
     session[:user_id] = user.id
   end
 

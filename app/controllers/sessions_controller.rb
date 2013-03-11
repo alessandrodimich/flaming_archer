@@ -8,11 +8,10 @@ class SessionsController < ApplicationController
 
       if user && user.authenticate(params[:user][:password])
         if params[:user][:remember_me] == "1"
-          create_permanent_cookie(user)
+          create_permanent_session(user)
         else
-          create_temporary_cookie(user)
+          create_temporary_session(user)
         end
-        create_session(user)
 
         redirect_to user_path(user), notice: "logged in!"
       else

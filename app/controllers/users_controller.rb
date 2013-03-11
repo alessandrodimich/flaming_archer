@@ -50,8 +50,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html {
 
-          create_session(@user)
-          create_permanent_cookie(@user)
+          create_permanent_session(@user)
           redirect_to user_path(@user), notice: "Welcome, #{current_user.username}!"
         }
         format.json { render json: @user, status: :created, location: @user }
