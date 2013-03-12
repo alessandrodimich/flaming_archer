@@ -11,6 +11,7 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
+  require 'capybara/rspec'
   require 'rspec/autorun'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
@@ -18,6 +19,9 @@ Spork.prefork do
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
+
+    config.include(MailerMacros)
+    config.before(:each) { reset_email}
 
     # include capybara DSL
     config.include Capybara::DSL
@@ -30,7 +34,7 @@ Spork.prefork do
     # config.mock_with :mocha
     # config.mock_with :flexmock
     # config.mock_with :rr
-    config.mock_with :rspec
+    #config.mock_with :rspec
 
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

@@ -2,14 +2,48 @@
 require 'spec_helper'
 
 describe "Authentication" do
-  subject { page }
 
-  describe "login page" do
-    before { visit login_path }
+  let (:user) { FactoryGirl.create(:user) }
+
+
+
+ it "should have content Signin" do
+   visit login_path
+   page.should have_content('Sign in')
+ end
+  it "should have a title" do
+    visit login_path
+    page.should have_content('Remember')
   end
 
-  it { should have_selector('h2', text: 'Sign in') }
-  it { should have_selector('title', text: 'Login') }
+  it "should redirect to the welcome user page when valid parameters are typed" do
+
+    visit login_path
+
+    fill_in "user_password", with: user.password
+    fill_in "user_email", :with => user.email
+
+    click_button "Login"
+    current_path == user_path(user)
+    page.should have_content('logged in!')
+    page.should have_selector('title', text: "#{user.username}")
+  end
+
+  it "should not redirect to the welcome user page when invalid parameters are typed" do
+
+    visit login_path
+
+    fill_in "user_password", with: "asdad"
+    fill_in "user_email", :with => "sdfsdf"
+
+    click_button "Login"
+    current_path == login_path
+    page.should_not have_content('logged in!')
+    page.should have_selector('title', text: 'Login')
+    page.should have_content('Invalid')
+    page.should have_selector('div.alert.alert-error', text: 'Invalid')
+  end
+
 
 end
 

@@ -24,12 +24,13 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'rb-fsevent'
   gem 'growl'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'spork'
   gem 'guard-spork'
+  gem 'launchy'
 end
 
 group :development do
@@ -37,10 +38,9 @@ group :development do
   gem 'annotate'
 end
 group :test do
-  gem 'capybara'
+  gem 'capybara', '1.1.4'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'launchy'
 end
 
 gem 'jquery-rails'

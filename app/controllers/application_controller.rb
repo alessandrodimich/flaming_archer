@@ -11,6 +11,7 @@ private
   helper_method :current_user #allows the method current_user to be accessed in the view
 
 
+
   def create_permanent_session(user)
     cookies.permanent[:remember_me_token] = user.remember_me_token
     session[:user_id] = user.id

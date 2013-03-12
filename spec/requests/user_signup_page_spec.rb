@@ -6,8 +6,7 @@ describe "Signup page:" do
 
 
     before { visit signup_path }
-    puts "----------"
-    puts signup_path
+
     let(:submit) { "Signup" }
 
     describe " Registering with invalid information" do
