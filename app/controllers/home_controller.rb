@@ -5,4 +5,9 @@ class HomeController < ApplicationController
 
   def index
   end
+
+  def prova
+    render layout: 'application_test_nosidebar'
+
+  end
 end
