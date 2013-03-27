@@ -25,6 +25,7 @@ require "sprockets/railtie"
 
 BASE_TITLE = "FlamingArcher"
 VALID_EMAIL_REGEX = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+VALID_USERNAME_REGEX = /^[a-zA-Z0-9][a-zA-Z0-9_-]+$/i
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

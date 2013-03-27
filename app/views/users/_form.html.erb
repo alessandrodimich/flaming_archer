@@ -2,8 +2,7 @@
 <% @button_text ||= "Submit" %>
 <%= simple_form_for(@user, :html => {:class => 'form-vertical' }) do |f| %>
   <%= f.error_notification %>
-  <%= display_base_errors(@user) %>
-  <%= f.input_field :username, :autofocus => true, placeholder: 'Username' %>
+  <%= f.input :username, :autofocus => true, placeholder: 'Username', label: false %>
   <%= f.input :email, :required => true, placeholder: 'Email', label: false %>
   <%= f.input :password, :required => true, placeholder: 'Password', label: false %>
   <%= f.input :password_confirmation, :required => true, placeholder: 'Confirm password', label: false %>
