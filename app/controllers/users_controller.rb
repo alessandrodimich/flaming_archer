@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_filter :authorize, only: [:edit, :update, :destroy]
 before_filter :correct_user, only: [:edit, :update, :destroy]
+before_filter :authorize_to_create_user, only: [:new, :create]
   # GET /users
   # GET /users.json
   def index
@@ -15,11 +16,18 @@ before_filter :correct_user, only: [:edit, :update, :destroy]
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    begin
+
+      @user = User.find(params[:id])
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
+
+    rescue
+      redirect_to user_path(current_user), alert: "Unable to find user #{params[:id]}"
     end
   end
 

@@ -13,7 +13,9 @@ Rproj::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout' #equivalent to: match '/logout',  to: 'sessions#destroy'
   #get 'welcome', to: 'home#welcome', as: 'welcome'
   get 'index', to: 'home#index', as: 'index'
-  get "prova", to: 'home#prova', as: 'prova'
+  get 'prova', to: 'home#prova', as: 'prova'
+  get 'test',  to: 'home#test', as: 'test'
+  get 'map',  to: 'home#map', as: 'map'
 
 
 

@@ -7,7 +7,17 @@ class HomeController < ApplicationController
   end
 
   def prova
-    render layout: 'application_test_nosidebar'
+    render layout: 'home_prova'
+  end
+
+
+  def test
+    render layout: 'home_test'
+  end
+
+  def map
 
   end
+
+
 end
