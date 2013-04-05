@@ -1,5 +1,7 @@
 Rproj::Application.routes.draw do
 
+  get "events/index"
+
   get "password_resets/new"
 
   root to: "home#welcome"
@@ -16,6 +18,9 @@ Rproj::Application.routes.draw do
   get 'prova', to: 'home#prova', as: 'prova'
   get 'test',  to: 'home#test', as: 'test'
   get 'map',  to: 'home#map', as: 'map'
+  get 'events', to: 'events#index', as: 'events'
+
+
 
 
 
