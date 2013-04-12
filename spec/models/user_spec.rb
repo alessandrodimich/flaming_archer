@@ -30,6 +30,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:events) }
   it { should be_valid }
   it "is valid with a firstname and lastname"
   it "is invalid without a firstname?"

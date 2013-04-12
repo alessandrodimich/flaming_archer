@@ -31,6 +31,7 @@ group :development, :test do
   gem 'spork'
   gem 'guard-spork'
   gem 'launchy'
+  gem 'faker'
 end
 
 group :development do
@@ -40,7 +41,6 @@ end
 group :test do
   gem 'capybara', '1.1.4'
   gem 'database_cleaner'
-  gem 'faker'
 end
 
 gem 'jquery-rails'

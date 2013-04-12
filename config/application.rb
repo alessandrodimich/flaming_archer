@@ -8,21 +8,6 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
- # config.generators do |g|
- #     g.test_framework :rspec,
- #     fixtures: true,
- #     view_specs: false,
- #     helper_specs: true,
- #     routing_specs: true,
- #     controller_specs: true,
- #     request_specs: true
- #     g.fixture_replacement :factory_girl, dir: "spec/factories"
- #  end
-
-
-
-
-
 BASE_TITLE = "FlamingArcher"
 VALID_EMAIL_REGEX = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 VALID_USERNAME_REGEX = /^[a-zA-Z0-9][a-zA-Z0-9_-]+$/i
@@ -83,5 +68,16 @@ module Rproj
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+      config.generators do |g|
+      g.test_framework :rspec
+      g.fixtures false
+      g.view_specs false
+      g.helper_specs false
+      g.routing_specs true
+      g.controller_specs true
+      g.request_specs true
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+   end
   end
 end

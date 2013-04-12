@@ -4,6 +4,12 @@ module ApplicationHelper
       !current_user.nil?
   end
 
+  # The following boolean method verifies if the user object passed id effectively the current user
+  def current_user?(user)
+    user == current_user
+  end
+
+
   def display_base_errors(resource)
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
@@ -22,6 +28,6 @@ module ApplicationHelper
     else
       "#{BASE_TITLE} | #{page_title}"
     end
-end
+  end
 
 end

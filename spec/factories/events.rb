@@ -1,9 +1,11 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :event do
+
+    factory :event do
     name "Test Event"
-    user
+    user  # Here we tell FG about the micropost associated user just by including a user in the definition of the factory
     description "Test Description"
+    title "Title of the Event"
+
   end
+
 end

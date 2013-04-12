@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def correct_user
+    def verify_correct_user
       @user = User.find(params[:id])
       unless current_user == @user || current_user.username == "admin"
         flash.notice = "You are not authorized"
