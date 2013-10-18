@@ -12,11 +12,15 @@ class HomeController < ApplicationController
 
 
   def test
-    render layout: 'home_test'
+    render layout: 'application_test'
   end
 
   def map
+    render layout: 'application_test2'
+  end
 
+  def starter
+    render layout: 'home_starter'
   end
 
 

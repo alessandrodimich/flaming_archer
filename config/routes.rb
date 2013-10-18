@@ -19,6 +19,7 @@ Rproj::Application.routes.draw do
   get 'test',  to: 'home#test', as: 'test'
   get 'map',  to: 'home#map', as: 'map'
   get 'events', to: 'events#index', as: 'events'
+  get 'starter', to: 'home#starter', as: 'starter'
 
 
 

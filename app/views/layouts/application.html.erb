@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <meta charset="utf-8">
+    <html lang="en">
     <title><%= full_title(yield(:title))%></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
+
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : APP_NAME %>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= render 'layouts/shim' %>
     <%= yield(:head) %>
   </head>

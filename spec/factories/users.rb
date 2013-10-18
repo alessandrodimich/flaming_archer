@@ -7,6 +7,12 @@ FactoryGirl.define do
     email    "a.dimich@example.com"
     password "foobar"
     password_confirmation "foobar"
+
+    # Funzionalità admin da implementare
+    # factory :admin do
+    #   admin true
+    # end
+
   end
 
 end

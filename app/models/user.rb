@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :events, :dependent => :destroy
+  has_many :microposts, :dependent => :destroy
 
   validates(:username, presence: true, length: { maximum: 50 }, uniqueness:{ case_sensitive: false}, format: { with: VALID_USERNAME_REGEX })
   #VALID_EMAIL_REGEX = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
